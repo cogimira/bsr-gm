@@ -1,8 +1,6 @@
 import React from 'react';
-// import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import {BsrGm} from './package/engine/bsr-gm'
 
 class App extends React.Component {
   constructor() {
@@ -11,23 +9,15 @@ class App extends React.Component {
     this.name = "sdsd";
   }
 
+  componentDidMount() {
+    let targetCanvas = document.getElementById("app");
+    new BsrGm(targetCanvas);
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <canvas id="app"> </canvas>
       </div>
     );
   }
